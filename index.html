@@ -17,7 +17,7 @@
             let x = "<p style='margin:0;pointer-events:none'>"+e.getAttribute("pr") + p[i];
             if (i != 0) x += " (&#x25F2;" + p[0]+"/"+ct[i] +")";
             x += "</p>";
-            if (p[i] == 0 && p[0] < ct[i]) {e.style.backgroundColor = "#000";e.style.cursor="no-drop"}
+            if (p[i] == 0 && p[0] < ct[i] * .2) {e.style.backgroundColor = "#000";e.style.cursor="no-drop"}
             else if (p[0] < ct[i]) {e.style.backgroundColor = "#94877E";e.style.cursor="no-drop"}
             else {e.style.backgroundColor = "#BDA18C";e.style.cursor="pointer"}
             x += "<p style='margin:0;font-size:2vh;pointer-events:none'>" + e.getAttribute("sub") + "</p>";
