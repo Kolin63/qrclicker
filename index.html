@@ -1,0 +1,28 @@
+<!DOCTYPE html><head><title id="t">◲ 0</title></head><html><body style="width: 100vw;margin: 0;overflow-x:hidden;background-color: #E6DCD3;"><button id="0" pr="&#9714; " class="b" style="height: 34vh;font-size: 10vh;margin-top:4vh" sub="Scan!"></button><button id="1" pr="Scanners: " cps=0.1 class="b" sub="Beep Boop"></button><button id="2" pr="Interns: " cps=1 class="b" sub="(Almost) Unpaid"></button><button id="3" pr="Printers: " cps=8 class="b" sub="Printer? I hardly know her!"></button><button id="4" pr="Office: " cps=47 class="b" sub="Good, now we can make a sitcom too."></button><button id="5" pr="Factory: " cps=260 class="b" sub="The Factory Must Grow"></button><button id="6" pr="Supercomputers: " cps=1400 class="b" sub="I'm Sure NASA Can Spare a Few."></button><hr><div style="text-align: center;margin: 20px;"><p>QR Clicker - The Cookie Clicker Clone that can fit on a QR Code (that's only 3KB of code!)</p><a href="https://kolin63.com" target="_blank">Made by Kolin63</a><br><a href="https://github.com/Kolin63/qrclicker" target="_blank">GitHub</a></div></body><script>
+    let p,ct;const pc=[0,0,0,0,0,0,0],ctc=[0,15,100,500,2000,7000,50000];document.addEventListener("DOMContentLoaded", function () {
+        p = JSON.parse(localStorage.getItem("p")); if (p == undefined) p = pc;
+        ct = JSON.parse(localStorage.getItem("ct")); if (ct == undefined) ct = ctc;
+        u();
+        document.querySelectorAll('.b').forEach(function(e) {
+            const id = e.getAttribute("id");
+            e.addEventListener('click', function() {if (p[0] >= ct[id]) {
+                    p[0] -= ct[id];
+                    p[id]++;
+                    ct[id] = Math.floor(ct[id] * 1.15);
+                    u();}});const cps = e.getAttribute("cps");if (id != 0) {setInterval(function(){
+                p[0] += p[e.getAttribute("id")];u();},(1000/cps))}
+        });
+    })
+    function u() {
+        for (let i = 0; i < p.length; i++) {
+            const e = document.getElementById(i+"");
+            let x = "<p style='margin:0;pointer-events:none'>"+e.getAttribute("pr") + p[i];
+            if (i != 0) x += " (◲" + ct[i] +")";
+            x += "</p>";
+            if (p[i] == 0 && p[0] < ct[i]) {e.style.backgroundColor = "#000";e.style.cursor="no-drop"}
+            else if (p[0] < ct[i]) {e.style.backgroundColor = "#94877E";e.style.cursor="no-drop"}
+            else {e.style.backgroundColor = "#BDA18C";e.style.cursor="pointer"}
+            x += "<p style='margin:0;font-size:2vh;pointer-events:none'>" + e.getAttribute("sub") + "</p>";
+            e.innerHTML = x;
+        }localStorage.setItem("p", JSON.stringify(p));localStorage.setItem("ct", JSON.stringify(ct));document.getElementById("t").textContent = "◲ " + p[0] + " - QR Clicker";
+    }function reset() {p=pc;ct=ctc;}</script><style>.b {width: 90vw;height: 17vh;margin: 2vh 5vw;font-size: 5vh;transition: background-color .5s ease;cursor: pointer;}</style></html>
