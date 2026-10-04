@@ -5,7 +5,7 @@ Right now there are two different versions: the one on the QR Code, and the one 
 
 ![Gameplay](promo.png)
 
-Below is the QR Code, which is not a link, but the raw binaries. If you don't want to get the game from the QR Code, you can play it [here](https://kolin63.com/apps/qrclicker).
+Below is the QR Code, which is not a link, but the raw binaries. If you don't want to get the game from the QR Code, you can play it [here](http://qrclicker.kolin63.com).
 
 Alternatively, you can play completely offline using purely the 3KB of code with the data URI, by pasting this into your search bar:
 <details>
